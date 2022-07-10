@@ -3,7 +3,6 @@ import string
 import sys
 import time
 
-start_time = time.time()
 
 
 print("")
@@ -35,7 +34,8 @@ def bruteforce(password: str) -> str:
             na += 1
             print(f"Trying:{test}  |  Number of trys: {na}  |  Time gone since Start: " + "%f" % (time. time() - start_time))
             if test == password:
-                print(f"Password found. Password: {test} with {na} trys.")
+                print(f"Password found after: " + "%f" % (time. time() - start_time) + f" seconds  |  Password: {test} with {na} trys.")
                 return
 
+start_time = time.time()
 bruteforce(password)
