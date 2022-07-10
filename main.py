@@ -1,6 +1,10 @@
 import itertools
 import string
 import sys
+import time
+
+start_time = time.time()
+
 
 print("")
 print("  _                              _     ")
@@ -24,11 +28,12 @@ letters = string.ascii_letters + string.punctuation + string.digits
 
 def bruteforce(password: str) -> str:
     na = 0
+    timer = 0
     for n in range(1,10):
         for test in itertools.product(letters, repeat=n):
             test = "".join(test)
             na += 1
-            print(f"Trying:{test}  |  Number of trys: {na}")
+            print(f"Trying:{test}  |  Number of trys: {na}  |  Time gone since Start: " + "%f" % (time. time() - start_time))
             if test == password:
                 print(f"Password found. Password: {test} with {na} trys.")
                 return
